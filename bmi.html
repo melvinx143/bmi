@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+  </head>
+  <link rel="stylesheet" href="./bmi.css" />
+  <body>
+    <h1>Let's stay Healthy together</h1>
+    <div class="contentheader">
+      <div class="inputvalues">
+        <label>Height:</label>
+        <input
+          type="number"
+          min="0"
+          class="ht"
+          placeholder="Enter Height in cm"
+        />
+        <label>Weight:</label
+        ><input
+          type="number"
+          min="0"
+          class="wt"
+          placeholder="Enter Weight in Kg"
+        />
+        <div class="buttonz">
+          <button class="btn">Click Here</button>
+          <button onclick="location.reload()">Reload</button>
+        </div>
+      </div>
+      <div class="bmistatus">
+        <h1 style="font-size: 33px;color:black">BMI</h1>
+        <h4 class="resultbmi"></h4>
+      </div>
+      <div class="bmi_table">
+        <table>
+          <th class="bmi">BMI</th>
+          <th class="bmi">Weight Status</th>
+
+          <tr class="underweightbmi">
+            <td class="underweight"><18.5</td>
+            <td class="weightstatus">Underweight</td>
+          </tr>
+          <tr class="healthy">
+            <td class="underweight">18.5-24.9</td>
+            <td class="weightstatus">Healthy weight</td>
+          </tr>
+          <tr class="Overweight">
+            <td class="underweight">25.0-29.9</td>
+            <td class="weightstatus">Overweight</td>
+          </tr>
+          <tr class="Obesity">
+            <td class="underweight">>30.0</td>
+            <td class="weightstatus">Obesity</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <script src="./bmi.js"></script>
+  </body>
+</html>
