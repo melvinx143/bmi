@@ -1,37 +1,35 @@
-let weight = document.querySelector(".wt");
-let height = document.querySelector(".ht");
+let wt = document.querySelector(".wt");
+let ht = document.querySelector(".ht");
+let uw = document.querySelector(".under_weight");
+let nw = document.querySelector(".normal_weight");
+let ow = document.querySelector(".over_weight");
+let obesity = document.querySelector(".obesity");
 
+let bmiresult = document.querySelector(".bmiresult");
 document.querySelector(".btn").addEventListener("click", (e) => {
   e.preventDefault();
+  if (ht.value == "" || wt.value == "") {
+    document.querySelector(".bmiresult").innerHTML = "Please Choose a value";
+  } else {
+    ow.style.backgroundColor = " ";
+    uw.style.backgroundColor = " ";
+    nw.style.backgroundColor = " ";
+    obesity.style.backgroundColor = " ";
 
-  height = height.value / 100;
-  weight = weight.value;
-  let result = weight / (height * height);
-  document.querySelector(".resultbmi").innerHTML = result.toFixed(1);
-  let bstatus = "";
-  document.querySelector(".Overweight").style.backgroundColor = "none";
-  document.querySelector(".underweightbmi").style.backgroundColor = "none";
-  document.querySelector(".healthy").style.backgroundColor = "none";
-  document.querySelector(".Obesity").style.backgroundColor = "none";
+    let resultsfound = ([wt.value / (ht.value * ht.value)] * 10000).toFixed(1);
+    document.querySelector(".bmiresult").innerHTML = resultsfound;
 
-  if (result <= 18.5) {
-    bstatus = "underweightbmi";
-    document.querySelector(".underweightbmi").style.backgroundColor = "Green";
-    document.querySelector(".Obesity").style.color="white";
-  } else if (result >= 18.5 && result <= 24.9) {
-    bstatus = "healthy";
-    document.querySelector(".healthy").style.backgroundColor = "yellow";
-    document.querySelector(".Obesity").style.color="white";
-  } else if (result >= 25 && result <= 29.9) {
-    bstatus = "Overweight";
-    document.querySelector(".Overweight").style.backgroundColor = "orange";
-    document.querySelector(".Obesity").style.color="white";
-  } else if (result >= 30) {
-    bstatus = "Obesity";
-    document.querySelector(".Obesity").style.backgroundColor = "red";
-    document.querySelector(".Obesity").style.color="white";
-    console.log(4);
-
-    console.log(4);
+    if (resultsfound < 18.5) {
+      uw.style.backgroundColor = "green";
+    } else if (18.5 < resultsfound && resultsfound <= 24.9) {
+      nw.style.backgroundColor = "yellow";
+    } else if (25 < resultsfound && resultsfound <= 29.9) {
+      ow.style.backgroundColor = "orange";
+    } else {
+      obesity.style.backgroundColor = "red";
+    }
+    wt.disabled = true;
+    ht.disabled = true;
+    submitButton.disabled = true;
   }
 });
